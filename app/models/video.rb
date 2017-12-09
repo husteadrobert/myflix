@@ -1,3 +1,8 @@
 class Video < ActiveRecord::Base
-  has_one :category
+  belongs_to :category
+
+  # validates :title, presence: true
+  # validates :description, presence: true
+
+  validates_presence_of :title, :description
 end

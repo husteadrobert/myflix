@@ -1,10 +1,11 @@
 require 'spec_helper'
 
 describe Video do
-  it "saves itself" do
-    video = Video.new(title: "Video Title", description: "Some Description")
-    video.save
-    expect(Video.first.title).to eq("Video Title")
-    expect(Video.first.description).to eq("Some Description")
-  end
+
+it {should belong_to :category}
+
+it {should validate_presence_of :title }
+
+it {should validate_presence_of :description }
+
 end
