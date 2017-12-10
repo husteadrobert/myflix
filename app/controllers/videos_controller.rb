@@ -14,4 +14,9 @@ class VideosController < ApplicationController
     render 'genre'
   end
 
+  def search
+    terms = params[:terms]
+    @result = Video.search_by_title(terms)
+  end
+
 end
