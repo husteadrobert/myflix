@@ -49,4 +49,9 @@ describe Video do
       expect(result.size).to be > 1
     end
   end
+
+  describe '#average_rating' do
+    it "should calculate the average rating"
+    it "should return 0 if no ratings"
+  end
 end
