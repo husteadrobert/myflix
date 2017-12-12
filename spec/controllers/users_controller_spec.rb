@@ -11,8 +11,9 @@ describe UsersController do
   describe 'POST create' do
     it "creates a new @user variable from form parameters" do
       #user = {name: "John Smith", email_address: "abc@123.com", password: "secret"}
+      count = User.all.size
       post :create, user: Fabricate.attributes_for(:user)
-      expect(User.count).to eq(1)
+      expect(User.count).to eq(count + 1)
     end
     it "redirects to login page after saving" do
       user = {name: "John Smith", email_address: "abc@123.com", password: "secret"}

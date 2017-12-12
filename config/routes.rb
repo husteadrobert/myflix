@@ -8,6 +8,10 @@ Myflix::Application.routes.draw do
       #get '/search', to: 'videos#search', as: 'search'
       get :search, to: 'videos#search'
     end
+    # member do
+    #   post :review, to: 'videos#review'
+    # end
+    resources :reviews, only: [:create]
   end
 
   get '/login', to: 'sessions#new', as: 'login'
