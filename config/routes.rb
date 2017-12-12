@@ -21,7 +21,10 @@ Myflix::Application.routes.draw do
   get '/register', to: 'users#new', as: 'register'
   resources :users, only: [:create]
 
+
   get '/home', to: 'videos#index'
+
+  get 'my_queue', to: 'queue_items#index'
 
 
   get '/genre/:id', to: 'videos#genre', as: 'genre'
