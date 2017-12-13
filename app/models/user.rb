@@ -11,4 +11,10 @@ class User < ActiveRecord::Base
   validates :email_address, presence: true, uniqueness: true
   validates :password, presence: true
 
+
+  def normalize_queue_item_positions
+    self.queue_items.each_with_index do |queue_item, index|
+      queue_item.update_attributes(position: index+1)
+    end
+  end
 end
