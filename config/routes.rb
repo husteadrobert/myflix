@@ -14,15 +14,18 @@ Myflix::Application.routes.draw do
     resources :reviews, only: [:create]
   end
 
+  resources :relationships, only: [:create, :destroy]
+
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
   get '/register', to: 'users#new', as: 'register'
-  resources :users, only: [:create]
+  resources :users, only: [:create, :show]
   resources :queue_items, only: [:create, :destroy]
   post 'update_queue', to: 'queue_items#update_queue'
 
+  get '/people', to: 'relationships#index'
 
   get '/home', to: 'videos#index'
 
