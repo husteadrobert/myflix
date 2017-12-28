@@ -22,6 +22,15 @@ Myflix::Application.routes.draw do
 
   get '/register', to: 'users#new', as: 'register'
   resources :users, only: [:create, :show]
+  get 'forgot_password', to: 'forgot_passwords#new'
+  resources :forgot_passwords, only: [:create]
+  get 'forgot_password_confirmation', to: 'forgot_passwords#confirm'
+  resources :password_resets, only: [:show, :create]
+  get 'expired_token', to: 'password_resets#expired_token'
+  # get '/reset_password', to: 'users#request_reset_password'
+  # get '/reset_password/:id', to: 'users#reset_password_form'
+  # post '/reset_password', to: 'users#reset_password'
+
   resources :queue_items, only: [:create, :destroy]
   post 'update_queue', to: 'queue_items#update_queue'
 

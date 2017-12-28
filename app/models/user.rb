@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   validates :email_address, presence: true, uniqueness: true
   validates :password, presence: true
 
+  before_create :generate_token
+
 
   def normalize_queue_item_positions
     self.queue_items.each_with_index do |queue_item, index|
@@ -33,6 +35,10 @@ class User < ActiveRecord::Base
   def can_follow?(another_user)
     !(self.follows?(another_user) || self == another_user)
     #self != another_user && !self.following_relationships.map(&:leader).include?(another_user)
+  end
+
+  def generate_token
+    self.token = SecureRandom.urlsafe_base64
   end
 
 end
