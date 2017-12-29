@@ -1,0 +1,8 @@
+!!! 5
+%html(lang="en-US")
+  %body
+    %p Your friend #{@invitation.inviter.name} has invited you to join MyFlix!
+    %p= @invitation.message
+    %p= link_to "Come Join Today!", register_with_token_url(@invitation.token)
+  %footer
+    &copy 2013 MyFLiX
