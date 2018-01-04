@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include Tokenable
   has_secure_password validations: false
 
   has_many :reviews, -> { order("created_at DESC") }
@@ -14,7 +15,7 @@ class User < ActiveRecord::Base
   validates :email_address, presence: true, uniqueness: true
   validates :password, presence: true
 
-  before_create :generate_token
+  #before_create :generate_token
 
 
   def normalize_queue_item_positions
@@ -37,9 +38,9 @@ class User < ActiveRecord::Base
     #self != another_user && !self.following_relationships.map(&:leader).include?(another_user)
   end
 
-  def generate_token
-    self.token = SecureRandom.urlsafe_base64
-  end
+  # def generate_token
+  #   self.token = SecureRandom.urlsafe_base64
+  # end
 
   def follow(another_user)
     # Relationship.create(follower_id: self.id, leader_id: another_user.id) if self.can_follow?(another_user)

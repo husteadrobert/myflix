@@ -22,11 +22,11 @@ Myflix::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            ENV['EMAIL_ADDRESS'],
-    password:             ENV['EMAIL_PASSWORD'],
+    address:              ENV['MAILGUN_SMTP_SERVER'],
+    port:                 ENV['MAILGUN_SMTP_PORT'],
+    domain:               'ls-rh-myflix.herokuapp.com',
+    user_name:            ENV['MAILGUN_SMTP_LOGIN'],
+    password:             ENV['MAILGUN_SMTP_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true  }
    config.action_mailer.default_url_options = { host: 'https://ls-rh-myflix.herokuapp.com/' }
