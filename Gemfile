@@ -15,6 +15,8 @@ gem 'bootstrap_form'
 gem 'sidekiq', '3.0.0'
 gem 'sinatra'
 
+gem 'unicorn'
+
 group :development do
   gem 'thin'
   gem "better_errors"
