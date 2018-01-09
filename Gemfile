@@ -12,6 +12,9 @@ gem 'pg'
 gem 'bcrypt'
 gem 'bootstrap_form'
 
+gem 'sidekiq', '3.0.0'
+gem 'sinatra'
+
 group :development do
   gem 'thin'
   gem "better_errors"
