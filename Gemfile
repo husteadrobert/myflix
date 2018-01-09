@@ -17,6 +17,8 @@ gem 'sinatra'
 
 gem 'unicorn'
 
+gem 'sentry-raven'
+
 group :development do
   gem 'thin'
   gem "better_errors"
