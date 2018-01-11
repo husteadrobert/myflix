@@ -16,6 +16,10 @@ Myflix::Application.routes.draw do
     resources :reviews, only: [:create]
   end
 
+  namespace :admin do
+    resources :videos, only: [:new, :create]
+  end
+
   resources :relationships, only: [:create, :destroy]
 
   get '/login', to: 'sessions#new', as: 'login'
