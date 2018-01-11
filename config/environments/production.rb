@@ -40,8 +40,3 @@ Myflix::Application.configure do
     enable_starttls_auto: true  }
    config.action_mailer.default_url_options = { host: 'https://ls-rh-myflix.herokuapp.com/' }
 end
-
-
-Raven.configure do |config|
-  config.dsn = 'https://e80d0461b2294a27ba39a57a7dd0d608:22ea20afb1b94b41bb0938b42b0fa492@sentry.io/268610'
-end
