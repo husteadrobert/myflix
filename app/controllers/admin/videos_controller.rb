@@ -6,7 +6,7 @@ class Admin::VideosController < ApplicationController
   end
 
   def create
-    @video = Video.create(video_params)
+    @video = Video.new(video_params)
     if @video.save
       flash[:success] = "New Video Added: #{@video.title}"
       redirect_to new_admin_video_path
